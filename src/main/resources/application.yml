@@ -1,0 +1,49 @@
+micro-services-module-generator-properties:
+  template-file-path:
+  # 通用模块(common)包含以下子模块，这个通用模块会关联到各个数据库
+  common:
+    # module模块，用于存放数据库记录对应的实体类(entity，注意不是model)
+    module:
+      entity-package-name: ""
+      entity-save-path: "2"
+    # dao模块，用于存放数据库对应的数据访问接口和SQL实现的XML文件
+    dao:
+      mapper-package-name: "3"
+      mapper-interface-save-path: "4"
+      mapperXMLSavePath: "5"
+    # client模块，用于存放封装了数据访问接口的远程调用接口（简单来讲，就是单体项目中的Service接口）
+    client:
+      client-package-name: "6"
+      client-save-path: "7"
+      client-fallBack-packageName: "7.5"
+      client-fallBack-save-path: "8"
+
+  # 具体的业务模块，业务模块各自关联自己需要的数据库
+  businesses:
+    - business-name: "base"
+      database:
+        driver: "1"
+        url: "1"
+        user: "1"
+        password: "1"
+      # provider模块，用于存放封装了数据访问接口的远程调用接口的具体实现（简单来讲，就是单体项目中的ServiceImpl类）
+      provider:
+        module-name: "duyanhan-base-provider"
+        service-implements-package-name: ""
+        service-implements-save-path: ""
+    - business-name: "order"
+      database:
+        driver: "2"
+        url: "2"
+        user: "2"
+        password: "2"
+      provider:
+        module-name: "duyanhan-base-provider"
+        service-implements-package-name: ""
+        service-implements-save-path: ""
+
+
+
+
+
+
