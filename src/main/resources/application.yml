@@ -1,5 +1,5 @@
 micro-services-module-generator-properties:
-  template-file-path:
+  template-file-path: "C:\\Users\\duyanhan\\IdeaProjects\\micro-service-code-generator\\src\\main\\resources\\templateFile"
   # 通用模块(common)包含以下子模块，这个通用模块会关联到各个数据库
   common:
     # module模块，用于存放数据库记录对应的实体类(entity，注意不是model)
@@ -22,24 +22,69 @@ micro-services-module-generator-properties:
   businesses:
     - business-name: "base"
       database:
-        driver: "1"
-        url: "1"
-        user: "1"
-        password: "1"
+        driver: "com.mysql.jdbc.Driver"
+        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_base?useUnicode=true&characterEncoding=utf-8"
+        user: "root"
+        password: "123456"
       # provider模块，用于存放封装了数据访问接口的远程调用接口的具体实现（简单来讲，就是单体项目中的ServiceImpl类）
       provider:
         module-name: "duyanhan-base-provider"
-        service-implements-package-name: ""
+        service-implements-package-name: "com.duyanhan.service"
         service-implements-save-path: ""
+
+    - business-name: "item"
+      database:
+        driver: "com.mysql.jdbc.Driver"
+        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_item?useUnicode=true&characterEncoding=utf-8"
+        user: "root"
+        password: "123456"
+      provider:
+        module-name: "duyanhan-item-provider"
+        service-implements-package-name: "com.duyanhan.service"
+        service-implements-save-path: ""
+
     - business-name: "order"
       database:
-        driver: "2"
-        url: "2"
-        user: "2"
-        password: "2"
+        driver: "com.mysql.jdbc.Driver"
+        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_order?useUnicode=true&characterEncoding=utf-8"
+        user: "root"
+        password: "123456"
       provider:
-        module-name: "duyanhan-base-provider"
-        service-implements-package-name: ""
+        module-name: "duyanhan-order-provider"
+        service-implements-package-name: "com.duyanhan.service"
+        service-implements-save-path: ""
+
+    - business-name: "pay"
+      database:
+        driver: "com.mysql.jdbc.Driver"
+        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_pay?useUnicode=true&characterEncoding=utf-8"
+        user: "root"
+        password: "123456"
+      provider:
+        module-name: "duyanhan-pay-provider"
+        service-implements-package-name: "com.duyanhan.service"
+        service-implements-save-path: ""
+
+    - business-name: "scheduler"
+      database:
+        driver: "com.mysql.jdbc.Driver"
+        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_scheduler?useUnicode=true&characterEncoding=utf-8"
+        user: "root"
+        password: "123456"
+      provider:
+        module-name: "duyanhan-scheduler-provider"
+        service-implements-package-name: "com.duyanhan.service"
+        service-implements-save-path: ""
+
+    - business-name: "user"
+      database:
+        driver: "com.mysql.jdbc.Driver"
+        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_user?useUnicode=true&characterEncoding=utf-8"
+        user: "root"
+        password: "123456"
+      provider:
+        module-name: "duyanhan-user-provider"
+        service-implements-package-name: "com.duyanhan.service"
         service-implements-save-path: ""
 
 
