@@ -37,7 +37,7 @@ public class MvcHandler {
     public void generateEntity(Table table, String entityPackageName, String entitySavePath) {
         Map input = new HashMap();
         input.put("table", table);
-        input.put("package", entityPackageName);
+        input.put("entityPackage", entityPackageName);
         // 处理表名，转换成驼峰形式，获取表名驼峰但首字母小写的形式
         input.put("lowerClassName", StringUtils.lowerName(table.getClassName()));
         // 根据表名获取类名的文件名

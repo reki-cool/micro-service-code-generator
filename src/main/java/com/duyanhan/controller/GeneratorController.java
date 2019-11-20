@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class TestController {
+public class GeneratorController {
 
     @Autowired
     private GeneratorProperties generatorProperties;
@@ -29,7 +29,7 @@ public class TestController {
     }
 
     @GetMapping("/generate")
-    public void generateCode() {
+    public String generateCode() {
         // 根据公有模块，查看公有模块中包含的各个子模块的信息
         Common common = generatorProperties.getCommon();
 
@@ -107,5 +107,6 @@ public class TestController {
                 mvcHandler.generateServiceImpl(table, entityPackageName, mapperPackageName, serviceImplementsPackageName, serviceImplementsSavePath);
             }
         }
+        return "全部生成完毕";
     }
 }
