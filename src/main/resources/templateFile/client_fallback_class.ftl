@@ -1,4 +1,4 @@
-package ${clientFallBackPackage}.fallback;
+package ${clientFallBackPackage};
 
 import ${entityPackage}.${table.className};
 
