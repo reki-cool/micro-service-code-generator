@@ -81,7 +81,7 @@ public class TestController {
             String serviceImplementsSavePath = provider.getServiceImplementsSavePath();
 
 
-            MvcHandler mvcHandler = new MvcHandler();
+            MvcHandler mvcHandler = new MvcHandler(generatorProperties.getTemplateFilePath());
             TableHandler tableHandler = new TableHandler();
             // 获取当前业务模块相关联数据库中的所有表
             List<Table> tables = tableHandler.getTables(driver, url, user, password);
