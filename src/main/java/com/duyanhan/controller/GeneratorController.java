@@ -107,6 +107,6 @@ public class GeneratorController {
                 mvcHandler.generateServiceImpl(table, entityPackageName, mapperPackageName, serviceImplementsPackageName, serviceImplementsSavePath);
             }
         }
-        return "全部生成完毕";
+        return "重复性代码生成完毕";
     }
 }
