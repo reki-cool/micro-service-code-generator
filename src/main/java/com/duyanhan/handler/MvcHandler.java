@@ -92,12 +92,13 @@ public class MvcHandler {
      *
      * @param table
      */
-    public void generateClient(Table table, String entityPackageName, String clientPackageName, String clientSavePath, String clientFallBackPackageName, String providerModuleName) {
+    public void generateClient(Table table, String entityPackageName, String clientPackageName, String clientSavePath, String clientFallBackPackageName, String providerModuleName, String clientConfigPackageName) {
         Map input = new HashMap();
         input.put("table", table);
         input.put("entityPackage", entityPackageName);
         input.put("clientPackage", clientPackageName);
         input.put("clientFallBackPackage", clientFallBackPackageName);
+        input.put("clientConfigPackage", clientConfigPackageName);
         input.put("providerModule", providerModuleName);
         input.put("lowerClassName", StringUtils.lowerName(table.getClassName()));
         String fileName = "Rest" + table.getClassName() + "Client" + ".java";

@@ -57,6 +57,8 @@ public class GeneratorController {
         String clientSavePath = client.getClientSavePath();
         // 封装了各个操作DAO接口的远程调用接口失败时的应变类所在包完整名称
         String clientFallBackPackageName = client.getClientFallBackPackageName();
+        // Feign配置类所在包名
+        String clientConfigPackageName = client.getClientConfigPackageName();
         // 封装了各个操作DAO接口的远程调用接口失败时的应变类文件保存目录
         String clientFallBackSavePath = client.getClientFallBackSavePath();
 
@@ -98,7 +100,7 @@ public class GeneratorController {
 
                 // ------------公有模块common的client子模块
                 // 逆向生成Client接口文件：封装了各种操作数据访问对象（DAO）接口的远程调用接口（相当于单体应用中的Service）
-                mvcHandler.generateClient(table, entityPackageName, clientPackageName, clientSavePath, clientFallBackPackageName, providerModuleName);
+                mvcHandler.generateClient(table, entityPackageName, clientPackageName, clientSavePath, clientFallBackPackageName, providerModuleName, clientConfigPackageName);
                 // 逆向生成ClientFallBack类文件：当client接口方法调用失败时生效的应变类
                 mvcHandler.generateClientFallBack(table, entityPackageName, clientPackageName, clientFallBackPackageName, clientFallBackSavePath);
 

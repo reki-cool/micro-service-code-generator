@@ -21,11 +21,21 @@ public class Client {
      */
     private String clientSavePath;
     /**
-     * 远程调用接口对应的调用失败应变类文件存放路径
+     * 远程调用接口对应的调用失败应变类所在包的完整名称
      */
     private String clientFallBackPackageName;
     /**
      * 远程调用接口对应的调用失败应变类文件存放路径
      */
     private String clientFallBackSavePath;
+    /**
+     * 远程调用接口对日志级别配置类所在包的完整名称
+     */
+    private String clientConfigPackageName;
+    /**
+     * 远程调用接口对日志级别配置类文件存放路径
+     */
+    private String clientConfigSavePath;
+
+
 }

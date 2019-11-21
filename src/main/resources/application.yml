@@ -17,6 +17,8 @@ micro-services-module-generator-properties:
       client-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-client\\src\\main\\java\\com\\duyanhan\\client"
       client-fallBack-package-name: "com.duyanhan.fallback"
       client-fallBack-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-client\\src\\main\\java\\com\\duyanhan\\fallback"
+      client-config-package-name: "com.duyanhan.config"
+      client-config-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-client\\src\\main\\java\\com\\duyanhan\\config"
 
   # 具体的业务模块，业务模块各自关联自己需要的数据库
   businesses:

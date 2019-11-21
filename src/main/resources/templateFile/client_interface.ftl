@@ -5,7 +5,7 @@ import ${clientFallBackPackage}.${table.className}ClientFallBack;
 import java.util.List;
 import java.util.Map;
 
-import cn.dm.config.DmConfiguration;
+import ${clientConfigPackage}.BasicLogConfiguration;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
 * Created by duyanhan
 */
-@FeignClient(name = "${providerModule}", configuration = DmConfiguration.class, fallback = ${table.className}ClientFallBack.class)
+@FeignClient(name = "${providerModule}", configuration = BasicLogConfiguration.class, fallback = ${table.className}ClientFallBack.class)
 public interface Rest${table.className}Client {
 
     /**
