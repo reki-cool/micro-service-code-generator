@@ -41,7 +41,7 @@
             </#list>
         </trim>
         <if test="beginPos != null and pageSize != null ">
-            limit ${r"#{"}beginPos},${r"#{"}pageSize}
+            limit ${r"${"}beginPos},${r"${"}pageSize}
         </if>
     </select>
 
