@@ -1,93 +1,105 @@
+base:
+  group:
+    prefix: com
+    suffix: dm
+  path:
+    root-path: C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang
+  db:
+    ip: 192.168.1.3
+    port: 3306
+    user: root
+    password: 123456
+
 micro-services-module-generator-properties:
-  template-file-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\micro-service-code-generator\\src\\main\\resources\\templateFile"
+  template-file-path: ${base.path.root-path}\\micro-service-code-generator\\src\\main\\resources\\templateFile
   # 通用模块(common)包含以下子模块，这个通用模块会关联到各个数据库
   common:
     # module模块，用于存放数据库记录对应的实体类(entity，注意不是model)
     module:
-      entity-package-name: "com.duyanhan.entity"
-      entity-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-module\\src\\main\\java\\com\\duyanhan\\entity"
+      entity-package-name: com.${base.group.suffix}.entity
+      entity-save-path: ${base.path.root-path}\\${base.group.suffix}-common\\${base.group.suffix}-common-module\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\entity
     # dao模块，用于存放数据库对应的数据访问接口和SQL实现的XML文件
     dao:
-      mapper-package-name: "com.duyanhan.mapper"
-      mapper-interface-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-dao\\src\\main\\java\\com\\duyanhan\\mapper"
-      mapperXMLSavePath: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-dao\\src\\main\\resources\\mapper"
+      mapper-package-name: com.${base.group.suffix}.mapper
+      mapper-interface-save-path: ${base.path.root-path}\\${base.group.suffix}-common\\${base.group.suffix}-common-dao\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\mapper
+      mapperXMLSavePath: ${base.path.root-path}\\${base.group.suffix}-common\\${base.group.suffix}-common-dao\\src\\main\\resources\\mapper
     # client模块，用于存放封装了数据访问接口的远程调用接口（简单来讲，就是单体项目中的Service接口）
     client:
-      client-package-name: "com.duyanhan.client"
-      client-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-client\\src\\main\\java\\com\\duyanhan\\client"
-      client-fallBack-package-name: "com.duyanhan.fallback"
-      client-fallBack-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-client\\src\\main\\java\\com\\duyanhan\\fallback"
-      client-config-package-name: "com.duyanhan.config"
-      client-config-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-common\\duyanhan-common-client\\src\\main\\java\\com\\duyanhan\\config"
+      client-package-name: com.${base.group.suffix}.client
+      client-save-path: ${base.path.root-path}\\${base.group.suffix}-common\\${base.group.suffix}-common-client\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\client
+      client-fallBack-package-name: com.${base.group.suffix}.fallback
+      client-fallBack-save-path: ${base.path.root-path}\\${base.group.suffix}-common\\${base.group.suffix}-common-client\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\fallback
+      client-config-package-name: com.${base.group.suffix}.config
+      client-config-save-path: ${base.path.root-path}\\${base.group.suffix}-common\\${base.group.suffix}-common-client\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\config
 
   # 具体的业务模块，业务模块各自关联自己需要的数据库
   businesses:
-    - business-name: "base"
+    - business-name: base
       database:
-        driver: "com.mysql.jdbc.Driver"
-        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_base?useUnicode=true&characterEncoding=utf-8"
-        user: "root"
-        password: "123456"
+        driver: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_base?useUnicode=true&characterEncoding=utf-8
+        user: ${base.db.user}
+        password: ${base.db.password}
       # provider模块，用于存放封装了数据访问接口的远程调用接口的具体实现（简单来讲，就是单体项目中的ServiceImpl类）
       provider:
-        module-name: "duyanhan-base-provider"
-        service-implements-package-name: "com.duyanhan.service"
-        service-implements-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-base-provider\\src\\main\\java\\com\\duyanhan\\service"
+        module-name: ${base.group.suffix}-base-provider
+        service-implements-package-name: com.${base.group.suffix}.service
+        service-implements-save-path: ${base.path.root-path}\\${base.group.suffix}-base-provider\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\service
 
-    - business-name: "item"
+    - business-name: item
       database:
-        driver: "com.mysql.jdbc.Driver"
-        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_item?useUnicode=true&characterEncoding=utf-8"
-        user: "root"
-        password: "123456"
+        driver: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_item?useUnicode=true&characterEncoding=utf-8
+        user: ${base.db.user}
+        password: ${base.db.password}
       provider:
-        module-name: "duyanhan-item-provider"
-        service-implements-package-name: "com.duyanhan.service"
-        service-implements-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-item-provider\\src\\main\\java\\com\\duyanhan\\service"
+        module-name: ${base.group.suffix}-item-provider
+        service-implements-package-name: com.${base.group.suffix}.service
+        service-implements-save-path: ${base.path.root-path}\\${base.group.suffix}-item-provider\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\service
 
-    - business-name: "order"
+    - business-name: order
       database:
-        driver: "com.mysql.jdbc.Driver"
-        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_order?useUnicode=true&characterEncoding=utf-8"
-        user: "root"
-        password: "123456"
+        driver: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_order?useUnicode=true&characterEncoding=utf-8
+        user: ${base.db.user}
+        password: ${base.db.password}
       provider:
-        module-name: "duyanhan-order-provider"
-        service-implements-package-name: "com.duyanhan.service"
-        service-implements-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-order-provider\\src\\main\\java\\com\\duyanhan\\service"
+        module-name: ${base.group.suffix}-order-provider
+        service-implements-package-name: com.${base.group.suffix}.service
+        service-implements-save-path: ${base.path.root-path}\\${base.group.suffix}-order-provider\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\service
 
-    - business-name: "pay"
+    - business-name: pay
       database:
-        driver: "com.mysql.jdbc.Driver"
-        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_pay?useUnicode=true&characterEncoding=utf-8"
-        user: "root"
-        password: "123456"
+        driver: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_pay?useUnicode=true&characterEncoding=utf-8
+        user: ${base.db.user}
+        password: ${base.db.password}
       provider:
-        module-name: "duyanhan-pay-provider"
-        service-implements-package-name: "com.duyanhan.service"
-        service-implements-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-pay-provider\\src\\main\\java\\com\\duyanhan\\service"
+        module-name: ${base.group.suffix}-pay-provider
+        service-implements-package-name: com.${base.group.suffix}.service
+        service-implements-save-path: ${base.path.root-path}\\${base.group.suffix}-pay-provider\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\service
 
-    - business-name: "scheduler"
+    - business-name: scheduler
       database:
-        driver: "com.mysql.jdbc.Driver"
-        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_scheduler?useUnicode=true&characterEncoding=utf-8"
-        user: "root"
-        password: "123456"
+        driver: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_scheduler?useUnicode=true&characterEncoding=utf-8
+        user: ${base.db.user}
+        password: ${base.db.password}
       provider:
-        module-name: "duyanhan-scheduler-provider"
-        service-implements-package-name: "com.duyanhan.service"
-        service-implements-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-scheduler-provider\\src\\main\\java\\com\\duyanhan\\service"
+        module-name: ${base.group.suffix}-scheduler-provider
+        service-implements-package-name: com.${base.group.suffix}.service
+        service-implements-save-path: ${base.path.root-path}\\${base.group.suffix}-scheduler-provider\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\service
 
-    - business-name: "user"
+    - business-name: user
       database:
-        driver: "com.mysql.jdbc.Driver"
-        url: "jdbc:mysql://192.168.1.3:3306/duyanhan_user?useUnicode=true&characterEncoding=utf-8"
-        user: "root"
-        password: "123456"
+        driver: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_user?useUnicode=true&characterEncoding=utf-8
+        user: ${base.db.user}
+        password: ${base.db.password}
       provider:
-        module-name: "duyanhan-user-provider"
-        service-implements-package-name: "com.duyanhan.service"
-        service-implements-save-path: "C:\\Users\\duyanhan\\Desktop\\duyanhan-damiwang\\duyanhan-user-provider\\src\\main\\java\\com\\duyanhan\\service"
+        module-name: ${base.group.suffix}-user-provider
+        service-implements-package-name: com.${base.group.suffix}.service
+        service-implements-save-path: ${base.path.root-path}\\${base.group.suffix}-user-provider\\src\\main\\java\\${base.group.prefix}\\${base.group.suffix}\\service
 
 
 
