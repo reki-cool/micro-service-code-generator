@@ -37,69 +37,69 @@ micro-services-module-generator-properties:
     - business-name: base
       database:
         driver: com.mysql.jdbc.Driver
-        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_base?useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_${micro-services-module-generator-properties.businesses[0].business-name}?useUnicode=true&characterEncoding=utf-8
         user: ${base.db.user}
         password: ${base.db.password}
       # provider模块，用于存放封装了数据访问接口的远程调用接口的具体实现（简单来讲，就是单体项目中的ServiceImpl类）
       provider:
-        module-name: ${base.group.suffix}-base-provider
+        module-name: ${base.group.suffix}-${micro-services-module-generator-properties.businesses[0].business-name}-provider
         service-implements-package-name: com.${base.group.suffix}.service
-        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-base-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
+        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-${micro-services-module-generator-properties.businesses[0].business-name}-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
 
     - business-name: item
       database:
         driver: com.mysql.jdbc.Driver
-        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_item?useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_${micro-services-module-generator-properties.businesses[1].business-name}?useUnicode=true&characterEncoding=utf-8
         user: ${base.db.user}
         password: ${base.db.password}
       provider:
-        module-name: ${base.group.suffix}-item-provider
+        module-name: ${base.group.suffix}-${micro-services-module-generator-properties.businesses[1].business-name}-provider
         service-implements-package-name: com.${base.group.suffix}.service
-        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-item-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
+        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-${micro-services-module-generator-properties.businesses[1].business-name}-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
 
     - business-name: order
       database:
         driver: com.mysql.jdbc.Driver
-        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_order?useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_${micro-services-module-generator-properties.businesses[2].business-name}?useUnicode=true&characterEncoding=utf-8
         user: ${base.db.user}
         password: ${base.db.password}
       provider:
-        module-name: ${base.group.suffix}-order-provider
+        module-name: ${base.group.suffix}-${micro-services-module-generator-properties.businesses[2].business-name}-provider
         service-implements-package-name: com.${base.group.suffix}.service
-        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-order-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
+        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-${micro-services-module-generator-properties.businesses[2].business-name}-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
 
     - business-name: pay
       database:
         driver: com.mysql.jdbc.Driver
-        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_pay?useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_${micro-services-module-generator-properties.businesses[3].business-name}?useUnicode=true&characterEncoding=utf-8
         user: ${base.db.user}
         password: ${base.db.password}
       provider:
-        module-name: ${base.group.suffix}-pay-provider
+        module-name: ${base.group.suffix}-${micro-services-module-generator-properties.businesses[3].business-name}-provider
         service-implements-package-name: com.${base.group.suffix}.service
-        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-pay-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
+        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-${micro-services-module-generator-properties.businesses[3].business-name}-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
 
     - business-name: scheduler
       database:
         driver: com.mysql.jdbc.Driver
-        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_scheduler?useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_${micro-services-module-generator-properties.businesses[4].business-name}?useUnicode=true&characterEncoding=utf-8
         user: ${base.db.user}
         password: ${base.db.password}
       provider:
-        module-name: ${base.group.suffix}-scheduler-provider
+        module-name: ${base.group.suffix}-${micro-services-module-generator-properties.businesses[4].business-name}-provider
         service-implements-package-name: com.${base.group.suffix}.service
-        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-scheduler-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
+        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-${micro-services-module-generator-properties.businesses[4].business-name}-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
 
     - business-name: user
       database:
         driver: com.mysql.jdbc.Driver
-        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_user?useUnicode=true&characterEncoding=utf-8
+        url: jdbc:mysql://${base.db.ip}:${base.db.port}/${base.group.suffix}_${micro-services-module-generator-properties.businesses[5].business-name}?useUnicode=true&characterEncoding=utf-8
         user: ${base.db.user}
         password: ${base.db.password}
       provider:
-        module-name: ${base.group.suffix}-user-provider
+        module-name: ${base.group.suffix}-${micro-services-module-generator-properties.businesses[5].business-name}-provider
         service-implements-package-name: com.${base.group.suffix}.service
-        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-user-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
+        service-implements-save-path: ${base.path.root-path}\${base.group.suffix}-${micro-services-module-generator-properties.businesses[5].business-name}-provider\src\main\java\${base.group.prefix}\${base.group.suffix}\service
 
 
 
